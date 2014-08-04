@@ -1,8 +1,8 @@
 <h1>Export history from MyEpisodes to CSV</h1>
 <aside>
   <%= form_tag('/export') do %>
-    <%= text_field_tag(:username, nil, placeholder: 'Your MyEpisodes username') %>
-    <%= password_field_tag(:password, nil, placeholder: 'Your MyEpisodes password') %>
+    <%= text_field_tag(:username, nil, placeholder: 'Your MyEpisodes username', required: true) %>
+    <%= password_field_tag(:password, nil, placeholder: 'Your MyEpisodes password', required: true) %>
     <%= submit_tag('Export') %>
   <% end %>
 </aside>

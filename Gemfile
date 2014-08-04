@@ -14,6 +14,7 @@ gem 'bourbon'
 gem 'neat'
 gem 'bitters'
 gem 'refills'
+gem 'my_episodes', github: 'mthssdrbrg/my_episodes'
 
 group :development do
   gem 'spring'
@@ -22,4 +23,6 @@ end
 group :development, :test do
   gem 'rspec-rails'
   gem 'capybara'
+  gem 'vcr', require: false
+  gem 'webmock', require: false
 end
