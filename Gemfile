@@ -12,6 +12,7 @@ gem 'turbolinks'
 gem 'jbuilder', '~> 2.0'
 gem 'bourbon'
 gem 'neat'
+gem 'bitters'
 
 group :development do
   gem 'spring'
