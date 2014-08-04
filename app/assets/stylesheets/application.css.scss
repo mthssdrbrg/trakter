@@ -4,6 +4,15 @@
 
 @charset "utf-8";
 
+$base-body-color: white;
+
 @import 'bourbon';
-@import 'base/base';
+@import 'base/grid-settings';
 @import 'neat';
+@import 'base/base';
+@import 'refills/type-system-sans';
+@import 'refills/grid-items';
+
+section {
+  @include outer-container;
+}
