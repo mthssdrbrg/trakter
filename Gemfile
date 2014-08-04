@@ -13,6 +13,7 @@ gem 'jbuilder', '~> 2.0'
 gem 'bourbon'
 gem 'neat'
 gem 'bitters'
+gem 'refills'
 
 group :development do
   gem 'spring'
