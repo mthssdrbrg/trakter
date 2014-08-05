@@ -13,9 +13,11 @@ $base-body-color: white;
 @import 'refills/type-system-sans';
 @import 'refills/grid-items';
 
-section {
+.container {
   @include outer-container;
+}
 
-	aside { @include span-columns(3); }
-	article { @include span-columns(9); }
+section {
+  aside { @include span-columns(3); }
+  article { @include span-columns(9); }
 }
