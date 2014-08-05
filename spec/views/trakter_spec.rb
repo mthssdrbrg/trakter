@@ -8,10 +8,6 @@ RSpec.describe 'trakter/index', type: :view do
     render
   end
 
-  it 'presents a header / title' do
-    expect(rendered).to have_css('h1', text: 'Trakter')
-  end
-
   it 'presents three actions' do
     expect(rendered).to have_selector('.grid-item', count: 3)
   end
