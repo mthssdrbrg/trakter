@@ -9,7 +9,7 @@ RSpec.describe 'my_episodes/index', type: :view do
   end
 
   it 'presents a header / title' do
-    expect(rendered).to have_css('h1', text: 'Export history from MyEpisodes to CSV')
+    expect(rendered).to have_css('h1', text: 'Export history from MyEpisodes')
   end
 
   it 'has a form for exporting purposes' do
