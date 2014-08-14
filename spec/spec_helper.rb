@@ -27,9 +27,6 @@ RSpec.configure do |config|
   end
 
   config.include FactoryGirl::Syntax::Methods
-  config.before :suite do
-    FactoryGirl.lint
-  end
 
   config.before(:suite) do
     DatabaseCleaner.strategy = :transaction

@@ -2,7 +2,7 @@
 
 FactoryGirl.define do
   factory :export do
-    username 'username'
-    password 'password'
+    username 'demo'
+    password 'demo'
   end
 end

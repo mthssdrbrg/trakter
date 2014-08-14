@@ -1,6 +1,6 @@
 GIT
   remote: git://github.com/mthssdrbrg/my_episodes.git
-  revision: cc3f590136c666dce90100527d37761c753f827f
+  revision: 403e4e23a674267bcdd8e2dd76f624bfba9fe7a6
   specs:
     my_episodes (0.1.0)
       mechanize (~> 2.7)
