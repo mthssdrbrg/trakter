@@ -9,18 +9,18 @@ RSpec.describe 'trakter/index', type: :view do
   end
 
   it 'presents three actions' do
-    expect(rendered).to have_selector('.grid-item', count: 3)
+    expect(rendered).to have_selector('.block-item', count: 3)
   end
 
   it 'includes `export` action' do
-    expect(rendered).to have_css('a h1', text: 'Export')
+    expect(rendered).to have_css('a h1', text: 'export')
   end
 
   it 'includes `import` action' do
-    expect(rendered).to have_css('a h1', text: 'Import')
+    expect(rendered).to have_css('a h1', text: 'import')
   end
 
   it 'includes `transfer` action' do
-    expect(rendered).to have_css('a h1', text: 'Transfer')
+    expect(rendered).to have_css('a h1', text: 'transfer')
   end
 end
