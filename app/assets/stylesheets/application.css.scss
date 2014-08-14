@@ -11,12 +11,70 @@
 @import 'refills/type-system-sans';
 @import 'refills/grid-items';
 @import 'refills/navigation';
+@import 'icomoon';
+@import 'export';
 
 .container {
   @include outer-container;
-}
 
-section {
-  aside { @include span-columns(3); }
-  article { @include span-columns(9); }
+  .logo-icon {
+    font-size: 2em;
+    color: $dark-gray;
+    float: left;
+    line-height: 1.75;
+  }
+
+  .content {
+    @include span-columns(8);
+    @include shift(2);
+
+    .menu-wrapper {
+      h2 {
+        line-height: 1.75;
+        color: $dark-gray;
+      }
+    }
+  }
+
+  .index {
+    @include clearfix;
+    @include shift(1);
+    border-left: 1px solid #e6e6e6;
+    padding-left: 2em;
+
+    a {
+      color: black;
+
+      &:active {
+        color: black;
+      }
+    }
+
+    li {
+      .block-icon {
+        float: left;
+        padding-top: 0.65em;
+        padding-right: 0.65em;
+      }
+
+      &.block-item {
+        @include span-columns(4 of 6);
+        margin-bottom: 2em;
+        border-bottom: 1px solid #e6e6e6;
+
+        i {
+          font-size: 2em;
+        }
+
+        a, a:active {
+          color: $dark-gray;
+        }
+      }
+    }
+  }
+
+  section {
+    aside { @include span-columns(3); }
+    article { @include span-columns(9); }
+  }
 }

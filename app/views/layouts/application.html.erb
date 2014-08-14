@@ -8,24 +8,28 @@
 </head>
   <body>
     <section class="container">
-      <header class="navigation">
-        <div class="menu-wrapper">
-          <%= link_to(root_path, class: 'logo') do %>
-            <img src="https://raw.github.com/Magnus-G/Random/master/placeholder_logo_2.png" alt="">
-          <% end %>
-          <p class="navigation-menu-button" id="js-mobile-menu">MENU</p>
-          <% unless on_index_page? %>
-          <div class="nav">
-            <ul id="navigation-menu">
-              <%= nav_link('Export', export_path) %>
-              <li class="nav-link"><a href="javascript:void(0)">Import</a></li>
-              <li class="nav-link"><a href="javascript:void(0)">Transfer</a></li>
-            </ul>
+      <div class="content">
+        <header class="navigation">
+          <div class="menu-wrapper">
+            <%= link_to(root_path, class: 'logo') do %>
+              <i class="logo-icon icomoon icon-screen"></i>
+            <% end %>
+            <p class="navigation-menu-button" id="js-mobile-menu">MENU</p>
+            <% unless on_index_page? %>
+            <div class="nav">
+              <ul id="navigation-menu">
+                <%= nav_link('export', export_path) %>
+                <%= nav_link('import', import_path) %>
+                <li class="nav-link"><a href="javascript:void(0)">transfer</a></li>
+              </ul>
+            </div>
+            <% else %>
+            <h2>trakter</h2>
+            <% end %>
           </div>
-        <% end %>
-        </div>
-      </header>
-      <%= yield %>
+        </header>
+        <%= yield %>
+      </div>
     </section>
   </body>
 </html>

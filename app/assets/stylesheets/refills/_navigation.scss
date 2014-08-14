@@ -1,7 +1,7 @@
 header.navigation {
   $navigation-padding: 1em;
-  $navigation-background: $dark-gray;
-  $navigation-color: transparentize(white, 0.3);
+  $navigation-background: white;
+  $navigation-color: transparentize(black, 0.3);
   $navigation-color-hover: white;
   $navigation-height: 60px;
   $navigation-nav-button-background: $base-accent-color;
@@ -9,7 +9,7 @@ header.navigation {
   $navigation-nav-button-border: 1px solid lighten($navigation-nav-button-background, 20);
   $navigation-search-background: lighten($navigation-background, 5);
   $navigation-search-border: 1px solid darken($navigation-background, 5);
-  $navigation-active-link-color: transparentize(white, 0.5);
+  $navigation-active-link-color: transparentize(black, 0.5);
   $navigation-submenu-padding: 1em;
   $horizontal-bar-mode: $large-screen;
 
@@ -107,8 +107,7 @@ header.navigation {
 
     a {
       font-weight: 400;
-      // color: $navigation-color;
-      color: #fff;
+      color: $navigation-color;
 
       &:hover {
         color: $navigation-color-hover;

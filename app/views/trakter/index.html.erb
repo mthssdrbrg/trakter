@@ -1,16 +1,25 @@
-<section class="index">
-  <div class="grid-items">
-    <%= link_to(export_path, class: 'grid-item') do %>
-      <h1>Export</h1>
-      <p>Export history from MyEpisodes</p>
-    <% end %>
-    <a href="javascript:void(0)" class="grid-item">
-      <h1>Import</h1>
-      <p>Import CSV to Trakt.tv</p>
-    </a>
-    <a href="javascript:void(0)" class="grid-item">
-      <h1>Transfer</h1>
-      <p>Transfer history from MyEpisodes to Trakt.tv</p>
-    </a>
-  </div>
+<div class="index">
+  <ul class="block-items">
+    <li class="block-item">
+      <i class="block-icon icomoon icon-download2"></i>
+      <%= link_to(export_path) do %>
+        <h1>export</h1>
+        <p>history from MyEpisodes</p>
+      <% end %>
+    </li>
+    <li class="block-item">
+      <i class="block-icon icomoon icon-upload2"></i>
+      <%= link_to(import_path) do %>
+        <h1>import</h1>
+        <p>comma-separated file to Trakt.tv</p>
+      <% end %>
+    </li>
+    <li class="block-item">
+      <i class="block-icon icomoon icon-loop"></i>
+      <a href="javascript:void(0)">
+        <h1>transfer</h1>
+        <p>history from MyEpisodes to Trakt.tv</p>
+      </a>
+    </li>
+  </ul>
 </div>

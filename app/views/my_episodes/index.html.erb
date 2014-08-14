@@ -1,13 +1,15 @@
-<div class="page-header">
-  <h1>Export history from MyEpisodes</h1>
-  <hr>
-</div>
 <section id="export">
-  <aside>
-    <%= form_tag('/export', id: 'export-form') do %>
-      <%= text_field_tag(:username, nil, placeholder: 'Your MyEpisodes username', required: true) %>
-      <%= password_field_tag(:password, nil, placeholder: 'Your MyEpisodes password', required: true) %>
-      <%= submit_tag('Export') %>
-    <% end %>
-  </aside>
+  <%= form_tag('/export', id: 'export-form') do %>
+    <ul class="block-items">
+      <li class="block-item">
+        <%= text_field_tag(:username, nil, placeholder: 'MyEpisodes username', required: true) %>
+      </li>
+      <li class="block-item">
+        <%= password_field_tag(:password, nil, placeholder: 'MyEpisodes password', required: true) %>
+      </li>
+      <li class="block-item">
+        <%= submit_tag('Export') %>
+      </li>
+    </ul>
+  <% end %>
 </section>
