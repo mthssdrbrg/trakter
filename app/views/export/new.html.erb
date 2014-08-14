@@ -1,0 +1,15 @@
+<section id="export">
+  <%= form_for(@export, url: {action: :create}, html: {id: 'export-form'}) do |f| %>
+    <ul class="block-items">
+      <li class="block-item">
+        <%= f.text_field(:username, placeholder: 'MyEpisodes username', required: true) %>
+      </li>
+      <li class="block-item">
+        <%= f.password_field(:password, placeholder: 'MyEpisodes password', required: true) %>
+      </li>
+      <li class="block-item">
+        <%= f.submit('Export') %>
+      </li>
+    </ul>
+  <% end %>
+</section>

@@ -25,4 +25,6 @@ group :development, :test do
   gem 'capybara'
   gem 'vcr', require: false
   gem 'webmock', require: false
+  gem 'factory_girl_rails'
+  gem 'database_cleaner'
 end

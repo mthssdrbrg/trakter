@@ -1,6 +1,5 @@
 Rails.application.routes.draw do
-  get 'export', to: 'my_episodes#index'
-  post 'export', to: 'my_episodes#export'
+  resources :export, only: [:new, :create, :show, :destroy]
 
   root 'trakter#index'
 end
