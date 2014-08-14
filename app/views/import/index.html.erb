@@ -1,0 +1,17 @@
+<div class="page-header">
+  <h1>Import CSV to Trakt.tv</h1>
+  <hr>
+</div>
+<section id="import">
+  <aside>
+    <%= form_tag('/import', id: 'import-form', multipart: true, remote: true, data: {type: :html}) do %>
+      <%= text_field_tag(:username, nil, placeholder: 'Your Trakt.tv username', required: true) %>
+      <%= password_field_tag(:password, nil, placeholder: 'Your Trakt.tv password', required: true) %>
+      <%= password_field_tag(:api_key, nil, placeholder: 'Your Trakt.tv API key', required: true) %>
+      <%= file_field_tag(:import_file, required: true) %>
+      <%= submit_tag('Import', id: 'submit-import') %>
+    <% end %>
+  </aside>
+  <article id="import-status">
+  </article>
+</section>

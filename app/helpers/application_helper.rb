@@ -16,4 +16,8 @@ module ApplicationHelper
     classes << 'active-nav-item' if current_page?(path)
     classes
   end
+
+  def pct_complete(data)
+    (data['at'].to_i / data['total'].to_i.to_f) * 100
+  end
 end

@@ -1,0 +1,13 @@
+<% if status['status'] == 'queued' %>
+  <p>Job currently in queue, id: <%= job_id %></p>
+<% else %>
+  <div class="progress-bar-indication">
+    <span class="meter" style="width: <%= pct_complete(status) %>%">
+      <p style="text-align: center;"><%= pct_complete(status) %>%</p>
+    </span>
+  </div>
+  <p>Status: <%= status['status'] %></p>
+  <p>Total: <%= status['total'] %></p>
+  <p>At: <%= status['at'] %></p>
+<% end %>
+<%= content_tag(:span, job_id, {id: 'job-id'}) %>
