@@ -13,7 +13,7 @@
     </ul>
     <% if @export.errors[:credentials].any? %>
       <div class="error">
-        <p><i class="icon-warning"></i>   <%= @export.errors[:credentials].first %></p>
+        <span><i class="icon-warning"></i>   <%= @export.errors[:credentials].first %></span>
       </div?
     <% end %>
   <% end %>

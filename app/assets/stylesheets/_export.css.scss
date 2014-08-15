@@ -9,6 +9,15 @@ section {
       @include clearfix;
       padding-top: .7em;
 
+      div {
+        &.error {
+          span {
+            padding: 2px;
+            color: darken(red, 20%);
+          }
+        }
+      }
+
       input {
         &.error {
           border-color: red;
