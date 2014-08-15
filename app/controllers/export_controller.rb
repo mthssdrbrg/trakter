@@ -38,7 +38,7 @@ class ExportController < ApplicationController
   end
 
   def export_filename
-    %(#{@export.token}-#{date_ext}.csv)
+    %(#{date_ext}-#{@export.token}.csv)
   end
 
   def date_ext
