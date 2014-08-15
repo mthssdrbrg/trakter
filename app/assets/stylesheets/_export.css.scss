@@ -9,6 +9,12 @@ section {
       @include clearfix;
       padding-top: .7em;
 
+      input {
+        &.error {
+          border-color: red;
+        }
+      }
+
       input[type="submit"] {
         line-height: normal;
         padding: .5em 1.5em;

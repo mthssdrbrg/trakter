@@ -20,7 +20,7 @@ class Export < ActiveRecord::Base
       false
     end
   rescue MyEpisodes::AuthenticationError
-    errors[:base] << 'invalid username and/or password'
+    errors[:credentials] << 'invalid username and / or password'
     false
   end
 

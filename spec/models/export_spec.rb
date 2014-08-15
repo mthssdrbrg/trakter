@@ -37,7 +37,7 @@ RSpec.describe Export, type: :model do
     it 'validates credentials' do
       ex = build(:export, username: 'demo', password: 'this is wrong')
       expect(ex).to be_invalid
-      expect(ex.errors[:base]).to include('invalid username and/or password')
+      expect(ex.errors[:credentials]).to include('invalid username and / or password')
     end
   end
 end

@@ -2,14 +2,19 @@
   <%= form_for(@export, url: {action: :create}, html: {id: 'export-form'}) do |f| %>
     <ul class="block-items">
       <li class="block-item">
-        <%= f.text_field(:username, placeholder: 'MyEpisodes username', required: true) %>
+        <%= f.text_field(:username, input_options('MyEpisodes username')) %>
       </li>
       <li class="block-item">
-        <%= f.password_field(:password, placeholder: 'MyEpisodes password', required: true) %>
+        <%= f.password_field(:password, input_options('MyEpisodes password')) %>
       </li>
       <li class="block-item">
         <%= f.submit('Export') %>
       </li>
     </ul>
+    <% if @export.errors[:credentials].any? %>
+      <div class="error">
+        <p><i class="icon-warning"></i>   <%= @export.errors[:credentials].first %></p>
+      </div?
+    <% end %>
   <% end %>
 </section>
