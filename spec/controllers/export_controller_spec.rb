@@ -48,6 +48,11 @@ RSpec.describe ExportController, type: :controller do
   end
 
   describe 'GET #show' do
+    it 'renders "Not implemented" status' do
+      get :show, id: 'TOKEN'
+      expect(response).to have_http_status(501)
+    end
+
     context 'with a valid token' do
       it 'returns http success'
     end
@@ -58,6 +63,11 @@ RSpec.describe ExportController, type: :controller do
   end
 
   describe 'DELETE #destroy' do
+    it 'renders "Not implemented" status' do
+      delete :destroy, id: 'TOKEN'
+      expect(response).to have_http_status(501)
+    end
+
     context 'with a token that hasn\'t expired' do
       it 'deletes the referred export'
     end

@@ -18,11 +18,11 @@ class ExportController < ApplicationController
   end
 
   def show
-    render status: 501
+    head status: 501
   end
 
   def destroy
-    render status: 501
+    head status: 501
   end
 
   private
