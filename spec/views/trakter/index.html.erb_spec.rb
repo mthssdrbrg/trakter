@@ -3,7 +3,7 @@
 require 'rails_helper'
 
 
-RSpec.describe 'trakter/index', type: :view do
+RSpec.describe 'trakter/index.html.erb', type: :view do
   before do
     render
   end

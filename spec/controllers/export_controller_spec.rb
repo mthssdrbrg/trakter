@@ -5,14 +5,15 @@ require 'rails_helper'
 
 RSpec.describe ExportController, type: :controller do
   describe 'GET #new' do
-    it 'responds successfully with an HTTP 200 status code' do
+    before do
       get :new
+    end
+    it 'responds successfully with an HTTP 200 status code' do
       expect(response).to be_success
       expect(response).to have_http_status(200)
     end
 
     it 'renders the `new` template' do
-      get :new
       expect(response).to render_template('new')
     end
   end
@@ -23,19 +24,20 @@ RSpec.describe ExportController, type: :controller do
         {username: 'demo', password: 'demo'}
       end
 
-      it 'responds successfully with an HTTP 200 status code' do
+      before do
         post :create, export: credentials
+      end
+
+      it 'responds successfully with an HTTP 200 status code' do
         expect(response).to be_success
         expect(response).to have_http_status(200)
       end
 
       it 'sets `csv` content type' do
-        post :create, export: credentials
         expect(response.content_type).to eq('text/csv')
       end
 
       it 'renders exported CSV' do
-        post :create, export: credentials
         output = response.body.split("\n")
         expect(output).to_not be_empty
         expect(output.size).to be > 1
