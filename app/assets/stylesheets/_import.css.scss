@@ -1,3 +1,16 @@
+section {
+  #import {
+    @include span-columns(6);
+    @include shift(1);
+    @include clearfix;
+    border-left: 1px solid #e6e6e6;
+    padding-left: 2em;
+
+    form {
+    }
+  }
+}
+
 #import-progress {
   #status-box {
     @include span-columns(3);

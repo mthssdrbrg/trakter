@@ -1,8 +1,8 @@
 <section id="import">
   <%= form_for(@import, url: {action: :create}, html: {id: 'import-form'}) do |f| %>
-    <%= f.text_field(:username, placeholder: 'Your Trakt.tv username', required: true) %>
-    <%= f.password_field(:password, placeholder: 'Your Trakt.tv password', required: true) %>
-    <%= f.password_field(:api_key, placeholder: 'Your Trakt.tv API key', required: true) %>
+    <%= f.text_field(:username, placeholder: 'Trakt.tv username', required: true) %>
+    <%= f.password_field(:password, placeholder: 'Trakt.tv password', required: true) %>
+    <%= f.password_field(:api_key, placeholder: 'Trakt.tv API key', required: true) %>
     <%= f.file_field(:csv_file, required: true) %>
     <%= f.submit('Import') %>
   <% end %>
