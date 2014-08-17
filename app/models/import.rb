@@ -9,13 +9,14 @@ class Import
   attr_accessor :csv_file, :created_at
   attr_accessor :job_id, :token
 
-  validates :csv_file, presence: true
+  validates_presence_of :csv_file
+  validates_presence_of :api_key, :username, :password
+  validate :validate_credentials
 
   before_validation :hash_password
-  before_validation :validate_credentials
-  after_validation :generate_token
-  after_validation :save_csv_file
-  after_validation :dispatch_import
+  after_validation :generate_token, unless: :errors?
+  after_validation :save_csv_file, unless: :errors?
+  after_validation :dispatch_import, unless: :errors?
 
   def self.path_for_token(t)
     File.join('public', 'imports', %(#{t}.csv))
@@ -26,6 +27,12 @@ class Import
       send(%(#{attr}=), value)
     end
     self.created_at ||= Time.now
+  end
+
+  def self.create(attrs={})
+    im = new(attrs)
+    im.valid?
+    im
   end
 
   def persisted?
@@ -55,7 +62,7 @@ class Import
 
   def validate_credentials
     if api_key.present? && username.present? && password.present?
-      if (data = client.account.test) && data['status'] == 'success'
+      if (data = client.account.test) && data.status == 'success'
         true
       else
         errors[:credentials] << 'invalid credentials: ' + data['error'].inspect
@@ -88,5 +95,9 @@ class Import
 
   def work_params
     [token, api_key, username, password]
+  end
+
+  def errors?
+    errors.any?
   end
 end

@@ -10,10 +10,8 @@ class ImportController < ApplicationController
     respond_to do |format|
       if @import.valid?
         format.html { redirect_to url_for(import_path(@import.job_id)) }
-        format.json { render json: @import, status: :created }
       else
         format.html { render :new }
-        format.json { render json: @import.errors, status: :unprocessable_entity }
       end
     end
   end
@@ -34,7 +32,7 @@ class ImportController < ApplicationController
   end
 
   def destroy
-    head status: 501
+    head :not_implemented
   end
 
   private

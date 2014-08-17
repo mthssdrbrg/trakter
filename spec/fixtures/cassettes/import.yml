@@ -1,0 +1,70 @@
+---
+http_interactions:
+- request:
+    method: post
+    uri: https://api.trakt.tv/account/test/DEMO_API_KEY
+    body:
+      encoding: UTF-8
+      string: '{"username":"demo","password":"89e495e7941cf9e40e6980d14a16bf023ccd4c91"}'
+    headers:
+      Content-Type:
+      - application/json
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Server:
+      - cloudflare-nginx
+      Date:
+      - Sun, 17 Aug 2014 14:36:48 GMT
+      Content-Type:
+      - application/json
+      Transfer-Encoding:
+      - chunked
+      Connection:
+      - keep-alive
+      Vary:
+      - Accept-Encoding
+      X-Powered-By:
+      - PHP/5.5.11-1~dotdeb.1
+      Cf-Ray:
+      - 15b69af997ab0c83-AMS
+    body:
+      encoding: UTF-8
+      string: '{"status":"success","message":"all good!"}'
+    http_version: 
+  recorded_at: Sun, 17 Aug 2014 14:36:49 GMT
+- request:
+    method: post
+    uri: https://api.trakt.tv/account/test/FAULTY_API_KEY
+    body:
+      encoding: UTF-8
+      string: '{"username":"blupp","password":"89e495e7941cf9e40e6980d14a16bf023ccd4c91"}'
+    headers:
+      Content-Type:
+      - application/json
+  response:
+    status:
+      code: 401
+      message: Unauthorized
+    headers:
+      Server:
+      - cloudflare-nginx
+      Date:
+      - Sun, 17 Aug 2014 14:37:22 GMT
+      Content-Type:
+      - application/json
+      Content-Length:
+      - '46'
+      Connection:
+      - keep-alive
+      X-Powered-By:
+      - PHP/5.5.11-1~dotdeb.1
+      Cf-Ray:
+      - 15b69be519e40c89-AMS
+    body:
+      encoding: UTF-8
+      string: '{"status":"failure","error":"failed authentication"}'
+    http_version: 
+  recorded_at: Sun, 17 Aug 2014 14:37:22 GMT
