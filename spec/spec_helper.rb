@@ -1,7 +1,5 @@
 # encoding: utf-8
 
-require 'factory_girl'
-require 'database_cleaner'
 require 'sidekiq/testing'
 
 
@@ -28,20 +26,7 @@ RSpec.configure do |config|
     mocks.verify_partial_doubles = true
   end
 
-  config.include FactoryGirl::Syntax::Methods
-
-  config.before(:suite) do
-    DatabaseCleaner.strategy = :transaction
-    DatabaseCleaner.clean_with(:truncation)
-  end
-
-  config.around(:each) do |example|
-    DatabaseCleaner.cleaning do
-      example.run
-    end
-  end
-
-  config.before(:each) do
+  config.before :each do
     Sidekiq::Worker.clear_all
   end
 end
