@@ -19,6 +19,16 @@
 .container {
   @include outer-container;
 
+  .flash {
+    .alert {
+      @extend %flash-error;
+    }
+
+    .flash-close {
+      float: right;
+    }
+  }
+
   .logo-icon {
     font-size: 2em;
     color: $dark-gray;

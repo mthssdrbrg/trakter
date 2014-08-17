@@ -28,6 +28,16 @@
             <% end %>
           </div>
         </header>
+        <div class="flash">
+        <% flash.each do |name, msg| -%>
+          <%= content_tag(:div, class: name) do %>
+            <%= content_tag(:span, msg) %>
+            <span class="flash-close">
+              <a href='#'>&times;</a>
+            </span>
+          <% end %>
+        <% end -%>
+        </div>
         <%= yield %>
       </div>
     </section>

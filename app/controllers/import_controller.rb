@@ -25,7 +25,7 @@ class ImportController < ApplicationController
       end
     else
       respond_to do |format|
-        format.html { redirect_to new_import_path }
+        format.html { redirect_to new_import_path, alert: %(#{@import.id} doesn't exist) }
         format.json { render json: @import.errors, status: 404 }
       end
     end
