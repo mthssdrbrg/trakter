@@ -26,7 +26,7 @@ class ImportController < ApplicationController
     else
       respond_to do |format|
         format.html { redirect_to new_import_path }
-        format.json { render json: @import.errors }
+        format.json { render json: @import.errors, status: 404 }
       end
     end
   end

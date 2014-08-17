@@ -38,12 +38,63 @@ RSpec.describe ImportController, type: :controller, vcr: {cassette_name: 'import
   end
 
   describe 'GET #show' do
-    context 'and an `id` that exists' do
-      pending
+    context 'with an `id` that exists' do
+      before do
+        allow(Sidekiq::Status).to receive(:get_all).and_return({
+          'status' => :working,
+          'total' => '100',
+          'at' => '30',
+        })
+      end
+
+      context 'for `html` format' do
+        before do
+          get :show, id: '12345'
+        end
+
+        it 'renders `show` template' do
+          expect(response).to render_template('show')
+        end
+      end
+
+      context 'for `json` format' do
+        before do
+          get :show, id: '12345', format: :json
+        end
+
+        it 'renders status as JSON' do
+          expect { JSON.parse(response.body) }.to_not raise_error
+        end
+      end
     end
 
     context 'and an `id` that doesn\'t exist' do
-      pending
+      context 'for `html` format' do
+        before do
+          get :show, id: '12345'
+        end
+
+        it 'redirects to creating a new import' do
+          expect(response).to redirect_to(new_import_path)
+        end
+
+        it 'displays a flash message'
+      end
+
+      context 'for `json` format' do
+        before do
+          get :show, id: '12345', format: :json
+        end
+
+        it 'responds with a 404 status code' do
+          expect(response).to have_http_status(404)
+        end
+
+        it 'renders an error' do
+          body = JSON.parse(response.body)
+          expect(body).to have_key('import')
+        end
+      end
     end
   end
 
