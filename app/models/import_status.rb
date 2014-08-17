@@ -1,18 +1,15 @@
 # encoding: utf-8
 
-class ImportStatus
-  include ActiveModel::Validations
-  include ActiveModel::Validations::Callbacks
-  include ActiveModel::Conversion
-
-  attr_reader :id, :status, :progress
+class ImportStatus < EphemeralModel
+  attr_accessor :id
+  attr_reader :status, :progress
 
   validates :id, presence: true
   before_validation :fetch_status
 
   def initialize(attrs={})
-    @id = attrs[:id]
-    @status_registry = attrs[:status_registry] || Sidekiq::Status
+    self.status_registry = attrs.delete(:status_registry) { Sidekiq::Status }
+    super
   end
 
   def to_h
@@ -23,21 +20,16 @@ class ImportStatus
     }
   end
 
-  def to_json(options={})
-    to_h.to_json
-  end
+  private
 
-  def persisted?
-    false
-  end
-
-  protected
+  attr_accessor :status_registry
+  attr_writer :status, :progress
 
   def fetch_status
-    data = @status_registry.get_all(id)
+    data = status_registry.get_all(id)
     if data && data.any?
-      @status = data['status']
-      @progress = pct_complete(data)
+      self.status = data['status']
+      self.progress = pct_complete(data)
       true
     else
       errors[:import] << 'id ("%s") doesn\'t exist' % id
