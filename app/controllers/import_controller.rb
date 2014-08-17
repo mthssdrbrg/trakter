@@ -8,7 +8,7 @@ class ImportController < ApplicationController
   def create
     @import = Import.new(import_params)
     respond_to do |format|
-      if @import.valid?
+      if @import.save
         format.html { redirect_to url_for(import_path(@import.job_id)) }
       else
         format.html { render :new }
