@@ -44,14 +44,6 @@
     border-left: 1px solid #e6e6e6;
     padding-left: 2em;
 
-    a {
-      color: black;
-
-      &:active {
-        color: black;
-      }
-    }
-
     li {
       .block-icon {
         float: left;
@@ -68,15 +60,14 @@
           font-size: 2em;
         }
 
-        a, a:active {
+        a {
           color: $dark-gray;
+
+          &:hover {
+            color: $base-accent-color;
+          }
         }
       }
     }
-  }
-
-  section {
-    aside { @include span-columns(3); }
-    article { @include span-columns(9); }
   }
 }
