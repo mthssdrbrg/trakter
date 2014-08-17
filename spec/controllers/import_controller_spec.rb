@@ -99,6 +99,12 @@ RSpec.describe ImportController, type: :controller, vcr: {cassette_name: 'import
   end
 
   describe 'DELETE #destroy' do
-    pending
+    before do
+      delete :destroy, id: '12345'
+    end
+
+    it 'renders "Not implemented" status' do
+      expect(response).to have_http_status(501)
+    end
   end
 end
