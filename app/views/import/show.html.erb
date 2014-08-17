@@ -1,0 +1,14 @@
+<section id="import-progress">
+  <div id="status-box">
+    <span id="job-status">
+      <%= content_tag(:i, nil, id: 'status-icon', class: "icon-#{@import.status}") %>
+      <%= content_tag(:span, "status: #{@import.status}") %>
+    </span>
+  </div>
+  <div class="progress-bar-indication">
+    <span id="import-progress-bar" class="meter" style="width: <%= @import.progress %>%">
+      <p style="text-align: center;"><%= @import.progress %>%</p>
+    </span>
+  </div>
+  <%= content_tag(:span, @import.id, {id: 'job-id', hidden: true}) %>
+</section>
