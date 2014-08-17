@@ -2,10 +2,10 @@
   <%= form_for(@export, url: {action: :create}, html: {id: 'export-form'}) do |f| %>
     <ul class="block-items">
       <li class="block-item">
-        <%= f.text_field(:username, input_options('MyEpisodes username')) %>
+        <%= f.text_field(:username, input_options(@export, 'MyEpisodes username')) %>
       </li>
       <li class="block-item">
-        <%= f.password_field(:password, input_options('MyEpisodes password')) %>
+        <%= f.password_field(:password, input_options(@export, 'MyEpisodes password')) %>
       </li>
       <li class="block-item">
         <%= f.submit('Export') %>

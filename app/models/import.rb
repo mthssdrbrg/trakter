@@ -57,9 +57,8 @@ class Import < EphemeralModel
       false
     end
   rescue HTTParty::ResponseError => e
-    unless e.message.empty?
-      errors[:credentials] << e.message
-    end
+    data = e.response.parsed_response
+    errors[:credentials] << data['error']
     false
   end
 

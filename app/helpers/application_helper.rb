@@ -16,4 +16,11 @@ module ApplicationHelper
     classes << 'active-nav-item' if current_page?(path)
     classes
   end
+
+  def input_options(item, placeholder)
+    opts = {required: true}
+    opts[:placeholder] = placeholder if placeholder
+    opts[:class] = 'error' if item.errors.any?
+    opts
+  end
 end

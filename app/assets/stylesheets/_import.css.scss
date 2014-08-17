@@ -1,12 +1,37 @@
 section {
   #import {
-    @include span-columns(6);
+    @include span-columns(8);
     @include shift(1);
     @include clearfix;
     border-left: 1px solid #e6e6e6;
     padding-left: 2em;
 
+    div {
+      &.error {
+        padding-top: .5em;
+
+        span {
+          padding: 2px;
+          color: darken(red, 20%);
+        }
+      }
+    }
+
     form {
+      @include span-columns(4 of 6);
+
+      input {
+        &.error {
+          border-color: red;
+        }
+      }
+    }
+
+    div {
+      &.error {
+        @include span-columns(2 of 6);
+        @include clearfix;
+      }
     }
   }
 }
@@ -16,32 +41,36 @@ section {
     @include span-columns(3);
     @include shift(1);
     @include clearfix;
+
+    #job-status {
+      line-height: 2;
+
+      #status-icon {
+        &.icon-queued {
+          @extend .icon-busy;
+          color: yellow;
+        }
+
+        &.icon-working {
+          @extend .icon-info;
+          color: $base-accent-color;
+        }
+
+        &.icon-complete {
+          @extend .icon-checkmark-circle;
+          color: green;
+        }
+
+        &.icon-failed {
+          @extend .icon-spam;
+          color: red;
+        }
+      }
+    }
   }
 
   .progress-bar-indication {
     @include span-columns(7);
     @include clearfix;
-  }
-
-  #status-icon {
-    &.icon-queued {
-      @extend .icon-busy;
-      color: yellow;
-    }
-
-    &.icon-working {
-      @extend .icon-info;
-      color: $base-accent-color;
-    }
-
-    &.icon-complete {
-      @extend .icon-checkmark-circle;
-      color: green;
-    }
-
-    &.icon-failed {
-      @extend .icon-spam;
-      color: red;
-    }
   }
 }
