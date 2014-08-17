@@ -1,0 +1,34 @@
+#import-progress {
+  #status-box {
+    @include span-columns(3);
+    @include shift(1);
+    @include clearfix;
+  }
+
+  .progress-bar-indication {
+    @include span-columns(7);
+    @include clearfix;
+  }
+
+  #status-icon {
+    &.icon-queued {
+      @extend .icon-busy;
+      color: yellow;
+    }
+
+    &.icon-working {
+      @extend .icon-info;
+      color: $base-accent-color;
+    }
+
+    &.icon-complete {
+      @extend .icon-checkmark-circle;
+      color: green;
+    }
+
+    &.icon-failed {
+      @extend .icon-spam;
+      color: red;
+    }
+  }
+}
