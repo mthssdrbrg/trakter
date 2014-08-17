@@ -15,6 +15,9 @@ gem 'neat'
 gem 'bitters'
 gem 'refills'
 gem 'my_episodes', github: 'mthssdrbrg/my_episodes'
+gem 'traktr', '~> 0.7'
+gem 'sidekiq'
+gem 'sidekiq-status'
 
 group :development do
   gem 'spring'
