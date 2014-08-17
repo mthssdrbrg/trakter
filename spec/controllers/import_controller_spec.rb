@@ -84,7 +84,9 @@ RSpec.describe ImportController, type: :controller, vcr: {cassette_name: 'import
           expect(response).to redirect_to(new_import_path)
         end
 
-        it 'displays a flash message'
+        it 'displays a flash message' do
+          expect(flash[:alert]).to_not be_nil
+        end
       end
 
       context 'for `json` format' do
